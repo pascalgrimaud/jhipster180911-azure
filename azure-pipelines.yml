@@ -22,3 +22,14 @@ steps:
     docker version
     docker-compose version
   displayName: 'Check installed tools'
+
+- script: |
+    npm install -g npm
+    npm -v
+  displayName: 'Update NPM'
+- script: |
+    ./mvnw test
+  displayName: 'Backend Tests'
+- script: |
+    npm test
+  displayName: 'Frontend Tests'
