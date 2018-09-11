@@ -28,8 +28,10 @@ steps:
     npm -v
   displayName: 'Update NPM'
 - script: |
+    npm install
+- script: |
     ./mvnw test
   displayName: 'Backend Tests'
 - script: |
-    npm test
+    npm test -- -u
   displayName: 'Frontend Tests'
