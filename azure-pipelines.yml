@@ -16,15 +16,15 @@ steps:
   displayName: 'Run a multi-line script'
 
 - script: |
-    java -version
-    node -v
-    npm -v
-    docker version
+    java -version && \
+    node -v && \
+    npm -v && \
+    docker version && \
     docker-compose version
   displayName: 'Check installed tools'
 
 - script: |
-    npm install -g npm
+    npm install -g npm && \
     npm -v
   displayName: 'Update NPM'
 - script: |
