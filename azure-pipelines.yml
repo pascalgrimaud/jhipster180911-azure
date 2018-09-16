@@ -6,33 +6,33 @@
 pool:
   vmImage: 'Ubuntu 16.04'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+jobs:
+- job: Test
+  strategy:
+    maxParallel: 2
+    matrix: 
+      alpha:
+        message: alpha
+      beta:
+        message: beta
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-
-- script: |
-    java -version
-    node -v
-    npm -v
-    docker version
-    docker-compose version
-  displayName: 'Check installed tools'
-
-- script: |
-    sudo npm install -g npm
-    npm -v
-  displayName: 'Update NPM'
-- script: |
-    npm install
-- script: |
-    ./mvnw test
-  displayName: 'Backend Tests'
-- script: |
-    npm test -- -u
-  displayName: 'Frontend Tests'
-- script: echo 'end'
+  steps:
+  - script: echo $message
+    displayName: 'Display message variable'
+  - script: |
+      java -version
+      node -v
+      npm -v
+      docker version
+      docker-compose version
+    displayName: 'Check installed tools'
+  - script: |
+      sudo npm install -g npm
+      npm -v
+    displayName: 'Update NPM'
+  - script: npm install
+  - script: ./mvnw test
+    displayName: 'Backend Tests'
+  - script: npm test -- -u
+    displayName: 'Frontend Tests'
+  - script: echo 'end'
