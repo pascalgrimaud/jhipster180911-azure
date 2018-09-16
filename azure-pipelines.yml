@@ -7,6 +7,9 @@ jobs:
 - job: Test
   pool:
     vmImage: 'Ubuntu 16.04'
+  variables:
+    TOTO: toto
+    TOTO_CONCAT: $(TOTO)hello
   strategy:
     maxParallel: 2
     matrix: 
@@ -18,6 +21,11 @@ jobs:
   steps:
   - script: echo $(message)
     displayName: 'Display message variable'
+  - script: |
+      pwd
+      echo AGENT_HOMEDIRECTORY=$(AGENT_HOMEDIRECTORY)
+      echo TOTO=$(TOTO)
+      echo TOTO_CONCAT=$(TOTO_CONCAT)
   - script: |
       java -version
       node -v
