@@ -23,7 +23,7 @@ jobs:
     displayName: 'Display message variable'
   - script: |
       pwd
-      echo AGENT_HOMEDIRECTORY=$(AGENT_HOMEDIRECTORY)
+      echo AGENT_HOMEDIRECTORY=$AGENT_HOMEDIRECTORY
       echo TOTO=$(TOTO)
       echo TOTO_CONCAT=$(TOTO_CONCAT)
   - script: |
