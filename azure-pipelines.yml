@@ -16,7 +16,7 @@ jobs:
         message: beta
 
   steps:
-  - script: echo $message
+  - script: echo $(message)
     displayName: 'Display message variable'
   - script: |
       java -version
