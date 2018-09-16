@@ -26,6 +26,10 @@ jobs:
       echo AGENT_HOMEDIRECTORY=$AGENT_HOMEDIRECTORY
       echo TOTO=$(TOTO)
       echo TOTO_CONCAT=$(TOTO_CONCAT)
+      ls -al /home/vsts/
+      ls -al /home/vsts/work/
+      ls -al /home/vsts/work/1/
+      ls -al $(pwd)
   - script: |
       java -version
       node -v
