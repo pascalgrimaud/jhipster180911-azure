@@ -14,6 +14,7 @@ jobs:
     JHIPSTER_TRAVIS: $(pwd)/test-integration
     JHIPSTER_SAMPLES: $(JHIPSTER_TRAVIS)/samples
     JHIPSTER_SCRIPTS: $(JHIPSTER_TRAVIS)/scripts
+    JHIPSTER_SCRIPTS_2: $JHIPSTER_TRAVIS/scripts
 
   strategy:
     maxParallel: 2
@@ -35,6 +36,7 @@ jobs:
       echo JHIPSTER_TRAVIS=$(JHIPSTER_TRAVIS)
       echo JHIPSTER_SAMPLES=$(JHIPSTER_SAMPLES)
       echo JHIPSTER_SCRIPTS=$(JHIPSTER_SCRIPTS)
+      echo JHIPSTER_SCRIPTS_2="$JHIPSTER_SCRIPTS_2"
       ls -al /home/vsts/
       ls -al /home/vsts/work/
       ls -al /home/vsts/work/1/
