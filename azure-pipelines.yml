@@ -32,6 +32,8 @@ jobs:
   - script: |
       pwd
       echo AGENT_HOMEDIRECTORY=$AGENT_HOMEDIRECTORY
+      echo BUILD_REPOSITORY_LOCALPATH=$BUILD_REPOSITORY_LOCALPATH
+      echo BUILD_SOURCESDIRECTORY=$BUILD_SOURCESDIRECTORY
       echo TOTO=$(TOTO)
       echo TOTO_CONCAT=$(TOTO_CONCAT)
       echo JHIPSTER_HOME=$(JHIPSTER_HOME)
@@ -52,13 +54,13 @@ jobs:
       docker version
       docker-compose version
     displayName: 'Check installed tools'
-  - script: |
-      sudo npm install -g npm
-      npm -v
-    displayName: 'Update NPM'
-  - script: npm install
-  - script: ./mvnw test
-    displayName: 'Backend Tests'
-  - script: npm test -- -u
-    displayName: 'Frontend Tests'
-  - script: echo 'end'
+  # - script: |
+  #     sudo npm install -g npm
+  #     npm -v
+  #   displayName: 'Update NPM'
+  # - script: npm install
+  # - script: ./mvnw test
+  #   displayName: 'Backend Tests'
+  # - script: npm test -- -u
+  #   displayName: 'Frontend Tests'
+  # - script: echo 'end'
