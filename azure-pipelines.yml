@@ -9,6 +9,7 @@ jobs:
     vmImage: 'Ubuntu 16.04'
   variables:
     JH_HOME: "$BUILD_SOURCESDIRECTORY"
+    JH_HOME2: "$BUILD_REPOSITORY_LOCALPATH"
     JH_INTEG: "$JH_HOME/test-integration"
     JH_SAMPLES: "$JH_INTEG/samples"
     JH_SCRIPTS: "$JH_INTEG/scripts"
@@ -29,7 +30,8 @@ jobs:
       echo "BUILD_REPOSITORY_LOCALPATH=$BUILD_REPOSITORY_LOCALPATH"
       echo "BUILD_SOURCESDIRECTORY=$BUILD_SOURCESDIRECTORY"
       echo "JH_HOME=$JH_HOME"
-      echo "JH_TRAVIS=$JH_TRAVIS"
+      echo "JH_HOME2=$JH_HOME2"
+      echo "JH_INTEG=$JH_INTEG"
       echo "JH_SAMPLES=$JH_SAMPLES"
       echo "JH_SCRIPTS=$JH_SCRIPTS"
   - script: |
