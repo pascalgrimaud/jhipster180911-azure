@@ -34,6 +34,7 @@ jobs:
       echo "JH_INTEG=$JH_INTEG"
       echo "JH_SAMPLES=$JH_SAMPLES"
       echo "JH_SCRIPTS=$JH_SCRIPTS"
+    displayName: directly in script
   - script: ./test.sh
     displayName: launch script
   - bash: ./test.sh
