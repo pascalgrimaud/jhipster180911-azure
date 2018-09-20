@@ -10,7 +10,7 @@ jobs:
   variables:
     JH_HOME: $BUILD_SOURCESDIRECTORY
     JH_HOME2: $BUILD_REPOSITORY_LOCALPATH
-    JH_INTEG: $(JH_HOME2)/test-integration
+    JH_INTEG: $JH_HOME2/test-integration
     JH_SAMPLES: "$JH_INTEG/samples"
     JH_SCRIPTS: "$JH_INTEG/scripts"
   strategy:
@@ -36,7 +36,7 @@ jobs:
       echo "JH_SCRIPTS=$JH_SCRIPTS"
   - script: ./test.sh
     displayName: launch script
-  - bash: test.sh
+  - bash: ./test.sh
     displayName: launch bash
   - script: |
       java -version
