@@ -11,7 +11,7 @@ jobs:
     JH_HOME: $BUILD_SOURCESDIRECTORY
     # JH_HOME2: $BUILD_REPOSITORY_LOCALPATH
     # JH_HOME3: $(BUILD_REPOSITORY_LOCALPATH)
-    JH_INTEG: $JH_HOME/test-integration
+    JH_INTEG: $(JH_HOME)/test-integration
     # JH_SAMPLES: "$JH_INTEG/samples"
     # JH_SCRIPTS: "$JH_INTEG/scripts"
   strategy:
