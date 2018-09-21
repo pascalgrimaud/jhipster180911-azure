@@ -34,13 +34,14 @@ jobs:
       echo JH_HOME=$(JH_HOME)
       echo JH_INTEG=$(JH_INTEG)
       echo JH_FOLDER_APP=$(JH_FOLDER_APP)
-    #   echo "JH_HOME2=$JH_HOME2"
-    #   echo "JH_INTEG=$JH_INTEG"
-    #   echo "JH_SAMPLES=$JH_SAMPLES"
-    #   echo "JH_SCRIPTS=$JH_SCRIPTS"
-    # displayName: directly in script
-  # - script: ./test.sh
-  #   displayName: launch script
+      echo "JH_HOME=$(JH_HOME)"
+      echo "JH_INTEG=$(JH_INTEG)"
+      echo "JH_FOLDER_APP=$(JH_FOLDER_APP)"
+    displayName: in pipeline
+  - script: ./test.sh
+    displayName: launch by script
+  - bash: ./test.sh
+    displayName: launch by bash
   # - bash: ./test.sh
   #   displayName: launch bash
   # - script: |
