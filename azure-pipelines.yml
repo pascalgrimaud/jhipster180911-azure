@@ -8,10 +8,9 @@ jobs:
   pool:
     vmImage: 'Ubuntu 16.04'
   variables:
-    JH_HOME: $BUILD_SOURCESDIRECTORY
-    JH_HOME2: echo $BUILD_SOURCESDIRECTORY
+    JH_HOME: $(BUILD_SOURCESDIRECTORY)
     JH_INTEG: $(JH_HOME)/test-integration
-    JH_FOLDER_APP: $HOME/app
+    JH_FOLDER_APP: $(HOME)/app
   strategy:
     maxParallel: 2
     matrix: 
@@ -29,7 +28,6 @@ jobs:
       echo "BUILD_REPOSITORY_LOCALPATH=$BUILD_REPOSITORY_LOCALPATH"
       echo "BUILD_SOURCESDIRECTORY=$BUILD_SOURCESDIRECTORY"
       echo JH_HOME=$(JH_HOME)
-      echo JH_HOME2=$(JH_HOME2)
       echo JH_INTEG=$(JH_INTEG)
       echo JH_FOLDER_APP=$(JH_FOLDER_APP)
       echo "JH_HOME=$(JH_HOME)"
