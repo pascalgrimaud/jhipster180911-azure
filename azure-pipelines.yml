@@ -28,8 +28,8 @@ jobs:
       echo JH_REPO="$JH_REPO"
       echo JH_REPO=$(JH_REPO)
     displayName: in pipeline
-  - script: ./init_var.sh
-    displayName: launch init_var
+  - script: ./init_env.sh
+    displayName: launch init_env
   - script: ./test.sh
     displayName: launch by script
   - bash: ./test.sh
