@@ -28,6 +28,9 @@ jobs:
       echo JH_REPO=$JH_REPO
       echo JH_REPO="$JH_REPO"
       echo JH_REPO=$(JH_REPO)
+      echo JH_TOTO=$JH_TOTO
+      echo JH_TOTO="$JH_TOTO"
+      echo JH_TOTO=$(JH_TOTO)
     displayName: in pipeline
   - script: ./test.sh
     displayName: launch by script
