@@ -8,7 +8,7 @@ jobs:
   pool:
     vmImage: 'Ubuntu 16.04'
   variables:
-    JH_REPO: $(BUILD_REPOSITORY_URI)
+    JH_REPO: $BUILD_REPOSITORY_URI
   strategy:
     maxParallel: 2
     matrix: 
@@ -21,7 +21,12 @@ jobs:
   - script: echo $(message)
     displayName: 'Display message variable'
   - script: |
-      echo BUILD_REPOSITORY_URI="$(BUILD_REPOSITORY_URI)"
+      echo BUILD_REPOSITORY_URI=$BUILD_REPOSITORY_URI
+      echo BUILD_REPOSITORY_URI="$BUILD_REPOSITORY_URI"
+      echo BUILD_REPOSITORY_URI=$(BUILD_REPOSITORY_URI)
+      echo JH_REPO=$JH_REPO
+      echo JH_REPO="$JH_REPO"
+      echo JH_REPO=$(JH_REPO)
     displayName: in pipeline
   - script: ./test.sh
     displayName: launch by script
