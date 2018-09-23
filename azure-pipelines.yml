@@ -9,6 +9,7 @@ jobs:
     vmImage: 'Ubuntu 16.04'
   variables:
     JH_REPO: $BUILD_REPOSITORY_URI
+    JH_TOTO: "$BUILD_REPOSITORY_URI"
   strategy:
     maxParallel: 2
     matrix: 
