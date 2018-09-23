@@ -7,3 +7,10 @@ echo "---"
 echo JH_REPO=$JH_REPO
 echo JH_REPO="$JH_REPO"
 echo JH_REPO=$(JH_REPO)
+echo JH_REPO="$(JH_REPO)"
+echo "---"
+JH_TEST=$BUILD_REPOSITORY_URI
+echo JH_TEST=$JH_TEST
+echo JH_TEST="$JH_TEST"
+echo JH_TEST=$(JH_TEST)
+echo JH_TEST="$(JH_TEST)"
