@@ -18,6 +18,8 @@ jobs:
       #   message: beta
 
   steps:
+  - script: sudo /etc/init.d/mysql stop
+    displayName: 'Stop MySQL'
   - script: echo $(message)
     displayName: 'Display message variable'
   - script: |
