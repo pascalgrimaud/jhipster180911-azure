@@ -23,6 +23,8 @@ jobs:
       sudo apt install 
   - script: sudo /etc/init.d/mysql stop
     displayName: 'Stop MySQL'
+  - script: sudo ls -al /etc/init.d/
+    displayName: 'list /etc/init.d/'
   - script: |
       # sudo apt install xvfb
       # sudo Xvfb :99.0 -screen 0 1024x768x16 &
