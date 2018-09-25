@@ -27,7 +27,8 @@ jobs:
       # sudo apt install xvfb
       # sudo Xvfb :99.0 -screen 0 1024x768x16 &
       which Xvfb
-      Xvfb $(DISPLAY) -screen 0 1024x768x16 &
+      echo $"(DISPLAY)"
+      Xvfb "$(DISPLAY)" -screen 0 1024x768x16 &
     displayName: 'Install and start xvfb'
   - script: echo $(message)
     displayName: 'Display message variable'
