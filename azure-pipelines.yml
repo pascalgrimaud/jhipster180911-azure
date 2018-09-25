@@ -9,7 +9,6 @@ jobs:
     vmImage: 'Ubuntu 16.04'
   variables:
     JH_REPO: $BUILD_REPOSITORY_URI
-    DISPLAY: :99.0
   strategy:
     maxParallel: 2
     matrix: 
@@ -25,8 +24,8 @@ jobs:
     displayName: 'Stop MySQL'
   - script: |
       sudo apt install xvfb
-      sh -e /etc/init.d/xvfb start
-    displayName: 'Install and start xvbf'
+      sudo Xvfb :99.0 -screen 0 1024x768x16 &
+    displayName: 'Install and start xvfb'
   - script: echo $(message)
     displayName: 'Display message variable'
   - script: |
