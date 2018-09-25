@@ -23,8 +23,10 @@ jobs:
   - script: sudo /etc/init.d/mysql stop
     displayName: 'Stop MySQL'
   - script: |
-      sudo apt install xvfb
-      sudo Xvfb :99.0 -screen 0 1024x768x16 &
+      # sudo apt install xvfb
+      # sudo Xvfb :99.0 -screen 0 1024x768x16 &
+      which Xvfb
+      sudo /etc/init.d/xvfb start
     displayName: 'Install and start xvfb'
   - script: echo $(message)
     displayName: 'Display message variable'
