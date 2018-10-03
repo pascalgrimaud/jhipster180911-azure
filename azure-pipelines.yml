@@ -16,6 +16,12 @@ jobs:
       node -v
       npm -v
     displayName: display version
+  - script: ls -al
+    displayName: display folder before
+  - script: npm install
+    displayName: npm install
+  - script: ls -al
+    displayName: display folder after
 
 - job: Test
   pool:
@@ -38,3 +44,5 @@ jobs:
     displayName: display version
   - script: echo $message
     displayName: display message
+  - script: ls -al
+    displayName: display folder
