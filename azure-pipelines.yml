@@ -18,6 +18,8 @@ jobs:
     displayName: display version
 
 - job: Test
+  pool:
+    vmImage: 'Ubuntu 16.04'
   dependsOn: MainJob
   variables:
     JH_REPO: $BUILD_REPOSITORY_URI
