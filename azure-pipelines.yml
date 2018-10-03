@@ -4,9 +4,21 @@
 # https://aka.ms/yaml
 
 jobs:
-- job: Test
+- job: MainJob
   pool:
     vmImage: 'Ubuntu 16.04'
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '8.12.0'
+    displayName: 'Install Node.js'
+  - script: |
+      node -v
+      npm -v
+    displayName: display version
+
+- job: Test
+  dependsOn: MainJob
   variables:
     JH_REPO: $BUILD_REPOSITORY_URI
     DISPLAY: :99.9
@@ -15,63 +27,12 @@ jobs:
     matrix: 
       alpha:
         message: alpha
-      # beta:
-      #   message: beta
-
+      beta:
+        message: beta
   steps:
-  - task: NodeTool@0
-    inputs:
-      versionSpec: '8.12.0'
-    displayName: 'Install Node.js'
   - script: |
-      sudo apt install 
-  - script: sudo /etc/init.d/mysql stop
-    displayName: 'Stop MySQL'
-  - script: sudo ls -al /etc/init.d/
-    displayName: 'list /etc/init.d/'
-  - script: |
-      # sudo apt install xvfb
-      # sudo Xvfb :99.0 -screen 0 1024x768x16 &
-      /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16
-    displayName: 'Install and start xvfb'
-  - script: echo $(message)
-    displayName: 'Display message variable'
-  - script: |
-      wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
-      sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-      sudo apt update
-      sudo apt install google-chrome-stable
-    displayName: 'Install google-chrome-stable'
-  - script: |
-      echo BUILD_REPOSITORY_URI=$BUILD_REPOSITORY_URI
-      echo BUILD_REPOSITORY_URI="$BUILD_REPOSITORY_URI"
-      echo BUILD_REPOSITORY_URI=$(BUILD_REPOSITORY_URI)
-      echo JH_REPO=$JH_REPO
-      echo JH_REPO="$JH_REPO"
-      echo JH_REPO=$(JH_REPO)
-    displayName: in pipeline
-  - script: ./init_env.sh
-    displayName: launch init_env
-  - script: ./test.sh
-    displayName: launch by script
-  - bash: ./test.sh
-    displayName: launch by bash
-  # - bash: ./test.sh
-  #   displayName: launch bash
-  # - script: |
-  #     java -version
-  #     node -v
-  #     npm -v
-  #     docker version
-  #     docker-compose version
-  #   displayName: 'Check installed tools'
-  # - script: |
-  #     sudo npm install -g npm
-  #     npm -v
-  #   displayName: 'Update NPM'
-  # - script: npm install
-  # - script: ./mvnw test
-  #   displayName: 'Backend Tests'
-  # - script: npm test -- -u
-  #   displayName: 'Frontend Tests'
-  # - script: echo 'end'
+      node -v
+      npm -v
+    displayName: display version
+  - script: echo $message
+    displayName: display message
